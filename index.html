@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analisis Broadband Indonesia 2024-2030 | IICF</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>Indonesia ITU Concern Forum (IICF)</h1>
+                    <p class="header-subtitle">by eddysetia@iicf.or.id & nap@iicf.or.id</p>
+                </div>
+                <div class="header-timestamp">
+                    <span id="current-time"></span>
+                    <span class="timezone">WIB</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-main">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar" id="sidebar">
+                <div class="mobile-header">
+                    <button class="sidebar-toggle" id="sidebar-toggle">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+                
+                <div class="nav-menu">
+                    <div class="nav-item" data-section="executive">
+                        <div class="nav-link">
+                            <i data-feather="bar-chart-2"></i>
+                            <span>Executive Dashboard</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="kpi-overview">KPI Overview</a>
+                            <a href="#" class="nav-sublink" data-page="regional-comparison">Perbandingan Regional</a>
+                            <a href="#" class="nav-sublink" data-page="target-progress">Progress Target</a>
+                            <a href="#" class="nav-sublink" data-page="haps-hibs">Kelayakan HAPS & HIBS</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item" data-section="infrastructure">
+                        <div class="nav-link">
+                            <i data-feather="server"></i>
+                            <span>Analisis Infrastruktur</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="fiber-backbone">Fiber Backbone</a>
+                            <a href="#" class="nav-sublink" data-page="5g-deployment">Deployment 5G</a>
+                            <a href="#" class="nav-sublink" data-page="submarine-cables">Kabel Laut</a>
+                            <a href="#" class="nav-sublink" data-page="satellite-coverage">Cakupan Satelit</a>
+                            <a href="#" class="nav-sublink" data-page="haps-potential">Potensi HAPS & HIBS</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item" data-section="economy">
+                        <div class="nav-link">
+                            <i data-feather="trending-up"></i>
+                            <span>Ekonomi Digital</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="growth-projections">Proyeksi Pertumbuhan</a>
+                            <a href="#" class="nav-sublink" data-page="sector-analysis">Analisis Sektor</a>
+                            <a href="#" class="nav-sublink" data-page="investment-metrics">Metrik Investasi</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item" data-section="connectivity">
+                        <div class="nav-link">
+                            <i data-feather="globe"></i>
+                            <span>Metrik Konektivitas</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="speed-performance">Performa Kecepatan</a>
+                            <a href="#" class="nav-sublink" data-page="coverage-analysis">Analisis Cakupan</a>
+                            <a href="#" class="nav-sublink" data-page="asean-benchmarking">Benchmark ASEAN</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item" data-section="regulatory">
+                        <div class="nav-link">
+                            <i data-feather="scale"></i>
+                            <span>Kerangka Regulasi</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="compliance-status">Status Kepatuhan</a>
+                            <a href="#" class="nav-sublink" data-page="itu-alignment">Alignment ITU</a>
+                            <a href="#" class="nav-sublink" data-page="policy-gaps">Gap Kebijakan</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item" data-section="risk">
+                        <div class="nav-link">
+                            <i data-feather="shield"></i>
+                            <span>Manajemen Risiko</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="erm-framework">Framework ERM</a>
+                            <a href="#" class="nav-sublink" data-page="cybersecurity">Cybersecurity</a>
+                            <a href="#" class="nav-sublink" data-page="stakeholder-analysis">Analisis Stakeholder</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item" data-section="data-sources">
+                        <div class="nav-link">
+                            <i data-feather="folder"></i>
+                            <span>Sumber Data</span>
+                            <i data-feather="chevron-down" class="nav-arrow"></i>
+                        </div>
+                        <div class="nav-submenu">
+                            <a href="#" class="nav-sublink" data-page="downloadable-reports">Laporan Download</a>
+                            <a href="#" class="nav-sublink" data-page="api-documentation">Dokumentasi API</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-area">
+                    <!-- KPI Overview Page (Default) -->
+                    <div class="page-content active" id="kpi-overview">
+                        <div class="page-header">
+                            <h2>KPI Overview - Dashboard Eksekutif</h2>
+                            <p>Ikhtisar indikator kinerja utama broadband Indonesia 2024</p>
+                        </div>
+                        
+                        <div class="metrics-grid">
+                            <div class="metric-card" data-modal="internet-penetration">
+                                <div class="metric-icon">
+                                    <i data-feather="users"></i>
+                                </div>
+                                <div class="metric-content">
+                                    <h3>Penetrasi Internet</h3>
+                                    <div class="metric-value">79.5%</div>
+                                    <div class="metric-change positive">+2.3% dari 2023</div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card" data-modal="broadband-speed">
+                                <div class="metric-icon">
+                                    <i data-feather="zap"></i>
+                                </div>
+                                <div class="metric-content">
+                                    <h3>Kecepatan Broadband</h3>
+                                    <div class="metric-value">28.94 Mbps</div>
+                                    <div class="metric-change positive">Mobile Average</div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card" data-modal="digital-skills">
+                                <div class="metric-icon">
+                                    <i data-feather="trending-up"></i>
+                                </div>
+                                <div class="metric-content">
+                                    <h3>Keterampilan Digital</h3>
+                                    <div class="metric-value">43.7%</div>
+                                    <div class="metric-change neutral">Populasi dewasa</div>
+                                </div>
+                            </div>
+
+                            <div class="metric-card" data-modal="cybersecurity-index">
+                                <div class="metric-icon">
+                                    <i data-feather="shield"></i>
+                                </div>
+                                <div class="metric-content">
+                                    <h3>Indeks Cybersecurity</h3>
+                                    <div class="metric-value">6.2/10</div>
+                                    <div class="metric-change negative">Perlu peningkatan</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="charts-grid">
+                            <div class="chart-card" data-modal="palapa-utilization">
+                                <div class="chart-header">
+                                    <h3>Utilisasi Palapa Ring</h3>
+                                    <p>Distribusi regional infrastruktur backbone</p>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="palapaChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card" data-modal="5g-deployment">
+                                <div class="chart-header">
+                                    <h3>Deployment 5G Indonesia</h3>
+                                    <p>975 BTS tersebar di 56 kota</p>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="deployment5gChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other pages will be loaded dynamically -->
+                    <div class="page-content" id="regional-comparison">
+                        <div class="page-header">
+                            <h2>Perbandingan Regional ASEAN</h2>
+                            <p>Benchmarking kinerja broadband Indonesia dengan negara ASEAN</p>
+                        </div>
+                        
+                        <div class="chart-card" data-modal="asean-comparison">
+                            <div class="chart-header">
+                                <h3>Kecepatan Mobile Broadband ASEAN</h3>
+                                <p>Perbandingan rata-rata kecepatan download</p>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="aseanChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other pages placeholders -->
+                    <div class="page-content" id="target-progress">
+                        <div class="page-header">
+                            <h2>Progress Target 2030</h2>
+                            <p>Pencapaian target universal meaningful connectivity</p>
+                        </div>
+                        <div class="progress-cards">
+                            <div class="progress-card" data-modal="coverage-target">
+                                <h3>Target Cakupan</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                                <p>78% dari target 95%</p>
+                            </div>
+                            <div class="progress-card" data-modal="speed-target">
+                                <h3>Target Kecepatan</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 48%"></div>
+                                </div>
+                                <p>48% dari target 60 Mbps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-content" id="haps-hibs">
+                        <div class="page-header">
+                            <h2>Kelayakan Skala Ekonomi HAPS & HIBS</h2>
+                            <p>Analisis feasibilitas teknologi High Altitude Platform Systems</p>
+                        </div>
+                        <div class="haps-cards">
+                            <div class="metric-card" data-modal="haps-coverage">
+                                <div class="metric-content">
+                                    <h3>Area Cakupan per Platform</h3>
+                                    <div class="metric-value">7,500 km²</div>
+                                    <div class="metric-change neutral">Altitude 17-24 km</div>
+                                </div>
+                            </div>
+                            <div class="metric-card" data-modal="haps-latency">
+                                <div class="metric-content">
+                                    <h3>Latency Target</h3>
+                                    <div class="metric-value">5-10ms</div>
+                                    <div class="metric-change positive">Ultra-low latency</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <button class="modal-close" id="modal-close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Modal content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
